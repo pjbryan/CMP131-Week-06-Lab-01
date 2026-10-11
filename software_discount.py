@@ -18,7 +18,7 @@ unitsPurchased = int(input(numberofUnits))
 # VALIDATE INPUT 
 if unitsPurchased > 0:
 
-# PEFORM CALCULATIONS
+# PERFORM CALCULATIONS
   originalCost = unitsPurchased * 99.00
 
 # DETERMINING THE DISCOUNTS
