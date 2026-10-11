@@ -50,4 +50,6 @@ print()
 # ASK AND STORE USER INPUT
 requestedPackage = "Select a package (A, B, or C): "
 selectedPackage = input(requestedPackage)
-#minutes input
+# minutes input
+minutesUsed = "Enter the minutes used during the month:"
+minutesCharged = int(input(minutesUsed))
