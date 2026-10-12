@@ -14,14 +14,10 @@ print ("SOFTWARE DISCOUNT", divider1)
 # ASK AND STORE USER INPUT
 numberofUnits = "Enter the amount of units purchased: "
 unitsPurchased = int(input(numberofUnits))
-
-# VALIDATE INPUT 
+originalCost = unitsPurchased * 99.00
+ 
+  # PERFORM CALCULATIONS
 if unitsPurchased > 0:
-
-# PERFORM CALCULATIONS
-  originalCost = unitsPurchased * 99.00
-
-# DETERMINING THE DISCOUNTS
   if unitsPurchased <= 9:
     discountRate = 0
   elif unitsPurchased <= 19:
@@ -33,11 +29,11 @@ if unitsPurchased > 0:
   else:
     discountRate = 0.5
 
-# MORE CALCULATIONS
+  # MORE CALCULATIONS
   discountAmount = originalCost * discountRate
   finalCost = originalCost - discountAmount
 
-# PRINT CALCULATIONS
+  # PRINT CALCULATIONS
   print ("SUMMARY", divider2)
 
   print (f"Units Purchased:" ,unitsPurchased)
