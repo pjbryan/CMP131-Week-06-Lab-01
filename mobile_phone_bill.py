@@ -51,5 +51,18 @@ print()
 requestedPackage = "Select a package (A, B, or C): "
 selectedPackage = input(requestedPackage)
 
-minutesUsed = "Enter the minutes used during the month:"
+minutesUsed = "Enter the minutes used during the month: "
 minutesCharged = int(input(minutesUsed))
+
+# DETERMINE THE PACKAGE 
+if selectedPackage == "A":
+  print ("PACKAGE A SELECTED", divider2)
+elif selectedPackage == "B":
+  print ("PACKAGE B SELECTED", divider2)
+elif selectedPackage == "C":
+  print ("PACKAGE C SELECTED", divider2)
+else:
+  print ("Invalid package selected.")
+if minutesCharged < 0:
+  print ("ERROR! Invalid number.")
+
