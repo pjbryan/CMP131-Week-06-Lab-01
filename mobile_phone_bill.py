@@ -54,15 +54,53 @@ selectedPackage = input(requestedPackage)
 minutesUsed = "Enter the minutes used during the month: "
 minutesCharged = int(input(minutesUsed))
 
-# DETERMINE THE PACKAGE 
-if selectedPackage == "A":
-  print ("PACKAGE A SELECTED", divider2)
-elif selectedPackage == "B":
-  print ("PACKAGE B SELECTED", divider2)
-elif selectedPackage == "C":
-  print ("PACKAGE C SELECTED", divider2)
-else:
-  print ("Invalid package selected.")
+# DETERMINE THE PACKAGE AND CALCULATE BILLS
+validBill = False
 if minutesCharged < 0:
   print ("ERROR! Invalid number.")
+elif selectedPackage == "A":
+  print ("PACKAGE A", divider2)
+  if minutesCharged > packageAMinutes:
+    additionalMinutes = minutesCharged - packageAMinutes
+    additionalCharge = additionalMinutes * packageARate
+  else:
+    additionalMinutes = 0
+    additionalCharge = 0
+  validBill = True
+  monthlyCharge = packageACharge
+  totalbill = packageACharge + additionalCharge
+elif selectedPackage == "B":
+  print ("PACKAGE B", divider2)
+  if minutesCharged > packageBMinutes:
+    additionalMinutes = minutesCharged - packageBMinutes
+    additionalCharge = additionalMinutes * packageBRate
+  else:
+    additionalMinutes = 0
+    additionalCharge = 0
+  validBill = True
+  monthlyCharge = packageBCharge
+  totalbill = packageBCharge + additionalCharge
+elif selectedPackage == "C":
+  print ("PACKAGE C", divider2)
+  additionalMinutes = 0  
+  additionalCharge = 0
+  monthlyCharge = packageCCharge
+  totalbill = packageCCharge + additionalCharge
+  validBill = True
+else:
+  print ("Invalid package selected.")
 
+# DISPLAY THE REPORT
+if validBill == True:
+  if selectedPackage == "C":
+    print("*UNLIMITED MINUTES: no additional charge*")
+  print()
+  print ("YOUR MONTHLY BILL", divider2)
+  print("Selected package: ",selectedPackage)
+  print("Minutes used: ", minutesCharged)
+  print(f"Monthly charge: ${monthlyCharge:.2f}")
+  print("Additional minutes:", additionalMinutes)
+  print(f"Additional minutes charge: ${additionalCharge:.2f}")
+  print(f"Total amount due: ${totalbill:.2f}")
+else:
+  print ("No bill was calculated.")
